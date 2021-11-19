@@ -1,15 +1,42 @@
 package com.ferragnez.party;
 
+import java.util.Scanner;
+
 public class CheckGuest {
 
 	public static void main(String[] args) {
 		
-//		creare e inizializzare l’array contenente i nomi degli invitati
-//		chiedere all’utente come si chiama
-//		verificare che il nome sia presente nella lista
-//		lasciarlo entrare o rispedirlo cortesemente da dove è venuto
-
-		String[] guests = {"Dua Lipa", "Paris Hilton", "Manuel Agnelli", "J-Ax", "Francesco Totti", "Ilary Blasi", "Bebe Vio", "Luis", "Pardis Zarei", "Martina Maccherone", "Rachel Zeilic"};
+		// creare e inizializzare l’array contenente i nomi degli invitati
+		String[] guestList = {"Dua Lipa", "Paris Hilton", "Manuel Agnelli", "J-Ax", "Francesco Totti", "Ilary Blasi", "Bebe Vio", "Luis", "Pardis Zarei", "Martina Maccherone", "Rachel Zeilic"};
+		
+		// chiedere all’utente come si chiama
+		System.out.print("Nome? ");
+		Scanner scan = new Scanner(System.in);
+		String userName = scan.nextLine();
+		
+		// verificare che il nome sia presente nella lista
+		// lasciarlo entrare o rispedirlo cortesemente da dove è venuto
+		
+		boolean trovato = false;
+		int counter = 0;
+		
+		while(!trovato && counter < guestList.length) {
+		
+			if(userName.equals(guestList[counter])) {
+				trovato = true;
+				System.out.println("Accesso consentito.");
+			} else {
+				counter++;
+			}
+			
+		}
+		
+		if(!trovato) {
+			System.out.println("Accesso negato.");
+		}
+		
+		// Scanner close
+		scan.close();
 		
 	}
 
