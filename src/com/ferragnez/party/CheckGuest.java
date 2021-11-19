@@ -16,19 +16,31 @@ public class CheckGuest {
 		
 		// verificare che il nome sia presente nella lista
 		// lasciarlo entrare o rispedirlo cortesemente da dove è venuto
-		
 		boolean trovato = false;
 		int counter = 0;
 		
+		// versione con WHILE
 		while(!trovato && counter < guestList.length) {
 		
 			if(userName.equals(guestList[counter])) {
 				trovato = true;
-				System.out.println("Accesso consentito.");
+				System.out.println("Accesso consentito. [ver. WHILE]");
 			} else {
 				counter++;
 			}
 			
+		}
+		
+		// versione con FOR
+		for(int i = 0; i < guestList.length; i++) {
+			
+			if(userName.equals(guestList[i])) {
+				trovato = true;
+				System.out.println("Accesso consentito. [ver. FOR]");
+				
+				break;
+			}
+		
 		}
 		
 		if(!trovato) {
